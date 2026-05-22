@@ -1,69 +1,26 @@
 ---
-import '../styles/global.css';
-import VideoCard from '../components/VideoCard.astro';
-
-const videos = [
-  {
-    title: "7 Dinangal // Cinematic",
-    src: "/videos/7_dinangal_centered.mp4"
-  },
-  {
-    title: "Wonder Woman // Hero",
-    src: "/videos/wonder_woman_centered_reel.mp4"
-  },
-  {
-    title: "JD Co. // Dance Extravaganza",
-    src: "/videos/dance_reel_500.mp4"
-  },
-  {
-    title: "A Tinder Date // Uncut",
-    src: "/videos/tinder_date_reel.mp4"
-  },
-  {
-    title: "On The Record // CU",
-    src: "/videos/knu_interview_reel.mp4"
-  }
-];
+export interface Props {
+  title: string;
+  videoSrc: string;
+}
+const { title, videoSrc } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>JOSY.mp4</title>
-  </head>
-  <body class="bg-[#050505] min-h-screen font-sans antialiased text-zinc-200 selection:bg-zinc-800 selection:text-white">
-
-    <main class="max-w-5xl mx-auto px-6 py-20 md:py-32">
-
-      <header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-zinc-900 pb-12">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-light tracking-tighter text-white">
-            Josy<span class="text-zinc-600">.mp4</span>
-          </h1>
-          <p class="text-[10px] tracking-[0.3em] text-zinc-500 mt-5 uppercase">
-            Selected Frames &bull; Choreography &bull; MMXXVI
-          </p>
-        </div>
-
-        <p class="text-sm font-light text-zinc-400 max-w-xs leading-relaxed">
-          A curated digital archive documenting movement, character sequences, and raw screen time.
-        </p>
-      </header>
-
-      <section class="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-        {videos.map((video) => (
-          <VideoCard title={video.title} videoSrc={video.src} />
-        ))}
-      </section>
-
-      <footer class="mt-32 pt-12 border-t border-zinc-900 text-center">
-         <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
-           &copy; {new Date().getFullYear()} Josy Sebastian. All frames reserved.
-         </p>
-      </footer>
-
-    </main>
-  </body>
-</html>
-
+<div class="group relative flex flex-col gap-5">
+  <div class="relative w-full aspect-[9/16] overflow-hidden rounded-md bg-[#121212] border border-zinc-800 transition-all duration-700 ease-out group-hover:border-zinc-500 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.03)]">
+    <video 
+      src={videoSrc} 
+      controls 
+      playsinline 
+      preload="metadata"
+      class="w-full h-full object-cover opacity-85 transition-opacity duration-700 group-hover:opacity-100 grayscale-[20%] group-hover:grayscale-0"
+    ></video>
+  </div>
+  
+  <div class="flex items-center gap-3 px-1">
+    <div class="h-[1px] w-3 bg-zinc-700 transition-all duration-500 ease-out group-hover:w-8 group-hover:bg-zinc-300"></div>
+    <h3 class="text-[11px] uppercase tracking-[0.2em] text-zinc-500 font-medium transition-colors duration-500 group-hover:text-zinc-100">
+      {title}
+    </h3>
+  </div>
+</div>

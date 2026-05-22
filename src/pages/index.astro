@@ -3,26 +3,11 @@ import '../styles/global.css';
 import VideoCard from '../components/VideoCard.astro';
 
 const videos = [
-  {
-    title: "7 Dinangal // Cinematic",
-    src: "/videos/7_dinangal_centered.mp4"
-  },
-  {
-    title: "Wonder Woman // Hero",
-    src: "/videos/wonder_woman_centered_reel.mp4"
-  },
-  {
-    title: "JD Co. // Dance Extravaganza",
-    src: "/videos/dance_reel_500.mp4"
-  },
-  {
-    title: "A Tinder Date // Uncut",
-    src: "/videos/tinder_date_reel.mp4"
-  },
-  {
-    title: "On The Record // CU",
-    src: "/videos/knu_interview_reel.mp4"
-  }
+  { title: "7 Dinangal // Cinematic", src: "/videos/7_dinangal_centered.mp4" },
+  { title: "Wonder Woman // Hero", src: "/videos/wonder_woman_centered_reel.mp4" },
+  { title: "JD Co. // Dance Extravaganza", src: "/videos/dance_reel_500.mp4" },
+  { title: "A Tinder Date // Uncut", src: "/videos/tinder_date_reel.mp4" },
+  { title: "On The Record // CU", src: "/videos/knu_interview_reel.mp4" }
 ];
 ---
 
@@ -33,9 +18,7 @@ const videos = [
     <title>JOSY.mp4</title>
   </head>
   <body class="bg-[#050505] min-h-screen font-sans antialiased text-zinc-200 selection:bg-zinc-800 selection:text-white">
-
     <main class="max-w-5xl mx-auto px-6 py-20 md:py-32">
-
       <header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-zinc-900 pb-12">
         <div>
           <h1 class="text-4xl md:text-5xl font-light tracking-tighter text-white">
@@ -45,25 +28,20 @@ const videos = [
             Selected Frames &bull; Choreography &bull; MMXXVI
           </p>
         </div>
-
         <p class="text-sm font-light text-zinc-400 max-w-xs leading-relaxed">
           A curated digital archive documenting movement, character sequences, and raw screen time.
         </p>
       </header>
-
       <section class="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((video) => (
           <VideoCard title={video.title} videoSrc={video.src} />
         ))}
       </section>
-
       <footer class="mt-32 pt-12 border-t border-zinc-900 text-center">
          <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
            &copy; {new Date().getFullYear()} Josy Sebastian. All frames reserved.
          </p>
       </footer>
-
     </main>
   </body>
 </html>
-
