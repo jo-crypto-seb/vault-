@@ -4,48 +4,65 @@ import VideoCard from '../components/VideoCard.astro';
 
 const videos = [
   {
-    title: "7 Dinangal // The Cinematic Cut",
+    title: "7 Dinangal // Cinematic",
     src: "/videos/7_dinangal_centered.mp4"
   },
   {
-    title: "Wonder Woman // Hero Sequence",
+    title: "Wonder Woman // Hero",
     src: "/videos/wonder_woman_centered_reel.mp4"
   },
   {
-    title: "JD company, CU Dance Extravaganza",
+    title: "JD Co. // Dance Extravaganza",
     src: "/videos/dance_reel_500.mp4"
   },
   {
-    title: "A Tinder Date // The Uncut Vibe",
+    title: "A Tinder Date // Uncut",
     src: "/videos/tinder_date_reel.mp4"
   },
   {
-    title: "On The Record // CU Interview",
+    title: "On The Record // CU",
     src: "/videos/knu_interview_reel.mp4"
   }
 ];
-
-
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Curated Vault</title>
+    <title>JOSY.mp4</title>
   </head>
-  <body class="bg-[#FAFAFA] min-h-screen font-sans antialiased">
-    <main class="max-w-2xl mx-auto px-6 py-16 md:py-24">
-      <header class="mb-12">
-        <h1 class="text-2xl font-semibold text-stone-800 tracking-tight">Vault.</h1>
-        <p class="text-sm text-stone-500 mt-2 font-light">A curated collection of visual fragments.</p>
+  <body class="bg-[#050505] min-h-screen font-sans antialiased text-zinc-200 selection:bg-zinc-800 selection:text-white">
+
+    <main class="max-w-5xl mx-auto px-6 py-20 md:py-32">
+
+      <header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-zinc-900 pb-12">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-light tracking-tighter text-white">
+            Josy<span class="text-zinc-600">.mp4</span>
+          </h1>
+          <p class="text-[10px] tracking-[0.3em] text-zinc-500 mt-5 uppercase">
+            Selected Frames &bull; Choreography &bull; MMXXVI
+          </p>
+        </div>
+
+        <p class="text-sm font-light text-zinc-400 max-w-xs leading-relaxed">
+          A curated digital archive documenting movement, character sequences, and raw screen time.
+        </p>
       </header>
 
-      <section class="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3">
+      <section class="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((video) => (
           <VideoCard title={video.title} videoSrc={video.src} />
         ))}
       </section>
+
+      <footer class="mt-32 pt-12 border-t border-zinc-900 text-center">
+         <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
+           &copy; {new Date().getFullYear()} Josy Sebastian. All frames reserved.
+         </p>
+      </footer>
+
     </main>
   </body>
 </html>
